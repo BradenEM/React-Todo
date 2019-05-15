@@ -1,0 +1,8 @@
+.list-item {
+  display: flex;
+  margin: 10px 0 10px 0;
+}
+
+.task-item {
+  margin: 0;
+}
