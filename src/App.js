@@ -1,6 +1,5 @@
 import React from "react";
-import todoArray from "./components/TodoComponents/TodoList";
-import Todo from "./components/TodoComponents/Todo";
+import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends React.Component {
@@ -9,7 +8,14 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = { todoList: todoArray, task: "", id: "", completed: "" };
+    this.state = {
+      todoArray: [
+        { task: "Complete that freaking MVP", id: Date.now(), completed: false }
+      ],
+      task: "",
+      id: "",
+      completed: false
+    };
   }
 
   changeHandler = event => {
@@ -24,7 +30,7 @@ class App extends React.Component {
       completed: false
     };
     this.setState({
-      todoList: [...this.state.todoList, newTodo],
+      todoArray: [...this.state.todoArray, newTodo],
       task: "",
       id: "",
       completed: ""
@@ -36,9 +42,7 @@ class App extends React.Component {
       <div>
         <h1>Todo List:</h1>
         <div>
-          {this.state.todoList.map(todo => (
-            <Todo todo={todo} key={todo.task} />
-          ))}
+          <TodoList todoArray={this.state.todoArray} />
         </div>
         <TodoForm
           addTodoHandler={this.addTodoHandler}
