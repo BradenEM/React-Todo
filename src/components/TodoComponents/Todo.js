@@ -1,13 +1,15 @@
 import React from "react";
 import "./Todo.css";
 
-function Todo(props) {
+const Todo = props => {
   return (
-    <div className="list-item">
-      <input type="checkbox" name="checkbox" />
-      <p className="task-item">{props.todo.task}</p>
+    <div
+      className={`item${props.item.completed ? " completed" : ""}`}
+      onClick={() => props.toggleItem(props.item.id)}
+    >
+      <p>{props.item.task}</p>
     </div>
   );
-}
+};
 
 export default Todo;

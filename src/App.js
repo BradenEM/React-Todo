@@ -22,6 +22,27 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  toggleItem = itemId => {
+    this.setState({
+      todoArray: this.state.todoArray.map(item => {
+        if (itemId === item.id) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
+      })
+    });
+  };
+
+  clearCompleted = event => {
+    event.preventDefault();
+    this.setState({
+      todoArray: this.state.todoArray.filter(item => !item.completed)
+    });
+  };
+
   addTodoHandler = event => {
     event.preventDefault();
     let newTodo = {
@@ -42,7 +63,11 @@ class App extends React.Component {
       <div>
         <h1>Todo List:</h1>
         <div>
-          <TodoList todoArray={this.state.todoArray} />
+          <TodoList
+            todoArray={this.state.todoArray}
+            toggleItem={this.toggleItem}
+            clearCompleted={this.clearCompleted}
+          />
         </div>
         <TodoForm
           addTodoHandler={this.addTodoHandler}
