@@ -10,7 +10,7 @@ class App extends React.Component {
     super();
     this.state = {
       todoArray: [
-        { task: "Complete that freaking MVP", id: Date.now(), completed: false }
+        { task: "Click me to strike me out", id: Date.now(), completed: false }
       ],
       task: "",
       id: "",
@@ -60,22 +60,24 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="entire-list">
         <h1 className="todo-title">Todo List:</h1>
-        <div>
+        <div className="todolist">
           <TodoList
             todoArray={this.state.todoArray}
             toggleItem={this.toggleItem}
           />
         </div>
-        <TodoForm
-          addTodoHandler={this.addTodoHandler}
-          changeHandler={this.changeHandler}
-          task={this.state.task}
-          id={this.state.id}
-          completed={this.state.completed}
-          clearCompleted={this.clearCompleted}
-        />
+        <div className="form">
+          <TodoForm
+            addTodoHandler={this.addTodoHandler}
+            changeHandler={this.changeHandler}
+            task={this.state.task}
+            id={this.state.id}
+            completed={this.state.completed}
+            clearCompleted={this.clearCompleted}
+          />
+        </div>
       </div>
     );
   }

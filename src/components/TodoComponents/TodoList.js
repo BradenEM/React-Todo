@@ -8,12 +8,7 @@ const TodoList = props => {
   return (
     <div>
       {props.todoArray.map(item => (
-        <Todo
-          cursor="pointer"
-          item={item}
-          key={item.id}
-          toggleItem={props.toggleItem}
-        />
+        <Todo item={item} key={item.id} toggleItem={props.toggleItem} />
       ))}
     </div>
   );

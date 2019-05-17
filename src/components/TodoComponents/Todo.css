@@ -11,4 +11,34 @@
   cursor: pointer;
   font-size: 1.6rem;
   margin: 10px 0 10px 0;
+  text-align: center;
+}
+
+.todo-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-input {
+  border-radius: 5px;
+  height: 30px;
+}
+
+.submit-btn {
+  color: white;
+  border-radius: 5px;
+  background: blue;
+  height: 35px;
+  width: 50px;
+  margin: 0 10px 0 10px;
+}
+
+.clear-btn {
+  color: white;
+  border-radius: 5px;
+  background: red;
+  height: 35px;
+  text-align: right;
+  margin: 0 10px 0 10px;
 }
