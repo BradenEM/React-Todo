@@ -8,11 +8,13 @@ const TodoList = props => {
   return (
     <div>
       {props.todoArray.map(item => (
-        <Todo item={item} key={item.id} toggleItem={props.toggleItem} />
+        <Todo
+          cursor="pointer"
+          item={item}
+          key={item.id}
+          toggleItem={props.toggleItem}
+        />
       ))}
-      <button className="clear-items" onClick={props.clearCompleted}>
-        Clear Completed
-      </button>
     </div>
   );
 };
