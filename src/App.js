@@ -50,12 +50,16 @@ class App extends React.Component {
       id: Date.now(),
       completed: false
     };
-    this.setState({
-      todoArray: [...this.state.todoArray, newTodo],
-      task: "",
-      id: "",
-      completed: ""
-    });
+    if (this.state.task.length === 0) {
+      alert("Please input a task.");
+    } else {
+      this.setState({
+        todoArray: [...this.state.todoArray, newTodo],
+        task: "",
+        id: "",
+        completed: ""
+      });
+    }
   };
 
   render() {
